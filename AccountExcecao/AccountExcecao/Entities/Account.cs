@@ -30,20 +30,33 @@ namespace AccountExcecao.Entities
         }
         public void Withdraw(double amount)
         {
-            if (amount > WithdrawLimit)
+
+            try
             {
-                throw new DomainException("The amount exceeds withdraw limit");
+                if (amount > WithdrawLimit)
+                {
+                    throw new DomainException("The amount exceeds withdraw limit");
+                }
+                if (amount > Balance)
+                {
+                    throw new DomainException("Not enough balance ");
+                }
+
+                Balance -= amount;
+
             }
-            if (amount > Balance)
+            catch (DomainException e)
             {
-                throw new DomainException("Not enough balance ");
+
+                Console.WriteLine("Withdraw error: " + e.Message);
             }
-            Balance -= amount;
+           
+           
         }
 
         public override string ToString()
         {
-            return "New Balance: " + Balance;
+            return "Balance: " + Balance;
         }
     }
 }

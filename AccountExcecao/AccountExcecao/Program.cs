@@ -26,17 +26,11 @@ namespace ExcecaoAccount
             Console.WriteLine();
             Console.Write("Enter amount for withdraw: ");
             double amountWithdraw = double.Parse(Console.ReadLine());
-            try
-            {
-                acc.Withdraw(amountWithdraw);
-                Console.WriteLine(acc);
 
-            }
-            catch (DomainException e)
-            {
-                Console.WriteLine("Withdraw error: " + e.Message);
+            acc.Withdraw(amountWithdraw);
+            Console.WriteLine(acc);
 
-            }
+
 
             Console.ReadKey();
 
