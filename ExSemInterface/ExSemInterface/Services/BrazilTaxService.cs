@@ -1,6 +1,6 @@
 ﻿namespace ExSemInterface.Services
 {
-    class BrazilTaxService
+    class BrazilTaxService : ITaxService  // Não é herança e sim uma realização de interface 
     {
         public double Tax(double amount)
         {
