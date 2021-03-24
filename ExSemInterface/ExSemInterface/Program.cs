@@ -29,7 +29,7 @@ namespace ExSemInterface
             double day = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
 
             CarRental carRental = new CarRental(start, finish, new Vehicle(model));
-            RentalService rentalService = new RentalService(hours, day);
+            RentalService rentalService = new RentalService(hours, day, new BrazilTaxService());
 
             rentalService.ProcessInvoice(carRental);
 
